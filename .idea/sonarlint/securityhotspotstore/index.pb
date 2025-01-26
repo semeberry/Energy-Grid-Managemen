@@ -13,3 +13,5 @@ I
 contracts/energy-nft.clar,d/d/ddd5968b5e5e2462b44f70a2d28d4aab4c0ea0f0
 H
 tests/energy-nft.test.ts,f/e/fe76c1358373eaf78b834692ec3a6516c08c8e98
+N
+contracts/iot-integration.clar,d/5/d53452ec45c20956d85d24ae67d8a59474ad4599
