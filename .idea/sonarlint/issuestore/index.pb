@@ -7,3 +7,5 @@ M
 tests/energy-tracking.test.ts,b/d/bd43a9c0202af7dd96b59f0f210cc04b4f475de0
 N
 contracts/energy-payments.clar,6/2/62a2cbe43194032b1215053101af2d032e1a9203
+M
+tests/energy-payments.test.ts,6/3/63ba1a49eac641b0573edca365ec967cde815162

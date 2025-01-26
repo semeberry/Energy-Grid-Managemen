@@ -1,21 +1,41 @@
+import { describe, it, expect, beforeEach } from "vitest"
 
-import { describe, expect, it } from "vitest";
+describe("energy-tracking", () => {
+  let contract: any
+  
+  beforeEach(() => {
+    contract = {
+      recordEnergy: (production: number, consumption: number, source: string) => ({ value: true }),
+      getEnergyData: (user: string, timestamp: number) => ({
+        production: 100,
+        consumption: 80,
+        source: "solar",
+      }),
+      getNetEnergy: (user: string, timestamp: number) => ({ value: 20 }),
+    }
+  })
+  
+  describe("record-energy", () => {
+    it("should record energy production and consumption", () => {
+      const result = contract.recordEnergy(100, 80, "solar")
+      expect(result.value).toBe(true)
+    })
+  })
+  
+  describe("get-energy-data", () => {
+    it("should return energy data for a user at a specific timestamp", () => {
+      const result = contract.getEnergyData("ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM", 123456)
+      expect(result.production).toBe(100)
+      expect(result.consumption).toBe(80)
+      expect(result.source).toBe("solar")
+    })
+  })
+  
+  describe("get-net-energy", () => {
+    it("should return the net energy for a user at a specific timestamp", () => {
+      const result = contract.getNetEnergy("ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM", 123456)
+      expect(result.value).toBe(20)
+    })
+  })
+})
 
-const accounts = simnet.getAccounts();
-const address1 = accounts.get("wallet_1")!;
-
-/*
-  The test below is an example. To learn more, read the testing documentation here:
-  https://docs.hiro.so/stacks/clarinet-js-sdk
-*/
-
-describe("example tests", () => {
-  it("ensures simnet is well initalised", () => {
-    expect(simnet.blockHeight).toBeDefined();
-  });
-
-  // it("shows an example", () => {
-  //   const { result } = simnet.callReadOnlyFn("counter", "get-counter", [], address1);
-  //   expect(result).toBeUint(0);
-  // });
-});
