@@ -9,3 +9,7 @@ N
 contracts/energy-payments.clar,6/2/62a2cbe43194032b1215053101af2d032e1a9203
 M
 tests/energy-payments.test.ts,6/3/63ba1a49eac641b0573edca365ec967cde815162
+I
+contracts/energy-nft.clar,d/d/ddd5968b5e5e2462b44f70a2d28d4aab4c0ea0f0
+H
+tests/energy-nft.test.ts,f/e/fe76c1358373eaf78b834692ec3a6516c08c8e98
