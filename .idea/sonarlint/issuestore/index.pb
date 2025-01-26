@@ -15,3 +15,5 @@ H
 tests/energy-nft.test.ts,f/e/fe76c1358373eaf78b834692ec3a6516c08c8e98
 N
 contracts/iot-integration.clar,d/5/d53452ec45c20956d85d24ae67d8a59474ad4599
+M
+tests/iot-integration.test.ts,c/b/cb7c60aba045aa478fec259a880227d84f9a1437

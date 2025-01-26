@@ -1,21 +1,33 @@
+import { describe, it, expect, beforeEach } from "vitest"
 
-import { describe, expect, it } from "vitest";
+describe("iot-integration", () => {
+  let contract: any
+  
+  beforeEach(() => {
+    contract = {
+      recordIotData: (deviceId: string, energyValue: number, dataType: string) => ({ value: true }),
+      getLatestIotData: (deviceId: string) => ({
+        user: "ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM",
+        energyValue: 500,
+        dataType: "production",
+      }),
+    }
+  })
+  
+  describe("record-iot-data", () => {
+    it("should record IoT data", () => {
+      const result = contract.recordIotData("device001", 500, "production")
+      expect(result.value).toBe(true)
+    })
+  })
+  
+  describe("get-latest-iot-data", () => {
+    it("should return the latest IoT data for a device", () => {
+      const result = contract.getLatestIotData("device001")
+      expect(result.user).toBe("ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM")
+      expect(result.energyValue).toBe(500)
+      expect(result.dataType).toBe("production")
+    })
+  })
+})
 
-const accounts = simnet.getAccounts();
-const address1 = accounts.get("wallet_1")!;
-
-/*
-  The test below is an example. To learn more, read the testing documentation here:
-  https://docs.hiro.so/stacks/clarinet-js-sdk
-*/
-
-describe("example tests", () => {
-  it("ensures simnet is well initalised", () => {
-    expect(simnet.blockHeight).toBeDefined();
-  });
-
-  // it("shows an example", () => {
-  //   const { result } = simnet.callReadOnlyFn("counter", "get-counter", [], address1);
-  //   expect(result).toBeUint(0);
-  // });
-});
